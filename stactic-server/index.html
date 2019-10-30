@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trang chủ</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <a href="./new-user.html">Add User</a>
+    <ul id="ul-list">
+
+    </ul>
+    <script type="text/javascript">
+        var url = 'http://localhost:3000/users'
+        var ul_list= document.getElementById('ul-list')
+        ul_list.addEventListener('click', onEdituser)
+
+
+        function onEdituser(event){
+            console.log(event);
+            var btn= event.target
+            var _id=btn.dataset.id
+            if(_id==undefined){
+                return
+            }
+            var _url='http://localhost:9080/edit-user.html#'+_id
+            console.log(_url);
+            window.location.href=_url
+        }
+        axios.get(url)
+        .then(function (response) {
+            var arrUser=response.data
+            render(arrUser)
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+        function render(arrUser){
+            var temp = arrUser.map((user) => {
+                return '<li>'+user.name+'<b> at </b> '+user.location+'    <button data-id="'+user.id+'">'+'Edit user'+'</button> <button onclick="deleteUser('+user.id+')">Delete User</button></li>';
+            })
+            document.getElementById("ul-list").innerHTML= temp.join('')
+        }
+        function deleteUser(id){
+            var url = 'http://localhost:3000/users/'+id
+            axios.delete(url)
+            .then(function (response) {
+                console.log("Deleted");
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+            window.location.reload('/')
+        }
+    </script>
+</body>
+</html>

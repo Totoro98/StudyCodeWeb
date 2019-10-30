@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New User</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <input id="input-name" placeholder="Nhập tên..."/>
+    <input id="input-location" placeholder="Nhập nơi sống..."/>
+    <button id="btn-add" >Add</button>
+
+
+
+
+    <script type="text/javascript">
+        var url = 'http://localhost:9080'
+
+        var btn = document.getElementById('btn-add');
+        btn.addEventListener('click', onAdduser)
+
+
+        function onAdduser(){
+            var inputValName= document.getElementById('input-name').value
+            var inputValLocation= document.getElementById('input-location').value
+            var user = {
+                name: inputValName,
+                location: inputValLocation
+            }
+            async function run(){
+                await axios.post('http://localhost:3000/users',user)
+                    .then(function (response) {
+                        console.log('Saved',response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                    
+                window.location.href=url;
+            }
+            run()
+        }
+        
+    </script>
+</body>
+</html>

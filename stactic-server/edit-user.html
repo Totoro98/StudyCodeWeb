@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit User</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <input id="edit-name" />
+    <input id="edit-location" />
+    <button id="save">Save</button>
+
+
+    <script type="text/javascript">
+
+        var url = 'http://localhost:3000/users'
+        var btnSave = document.getElementById('save')
+        btnSave.addEventListener('click', onSaveUser)
+
+        async function onSaveUser(){
+            var inputName= document.getElementById('edit-name').value
+            var inputLocation = document.getElementById('edit-location').value
+            await axios.patch(url ,{
+                name: inputName,
+                location: inputLocation
+            })
+            .then(function (response) {
+                console.log("Saved", response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+            window.location.href='/'
+        }
+        axios.get(url)
+        .then(function (response) {
+            var data = response.data
+            console.log("Success");
+            process(data)
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+        function process(data){
+            var hashId = window.location.hash
+            var _id=hashId.slice(1)
+            var temp = data.filter((user) => {
+                return user.id==_id
+            })
+            var inputName= document.getElementById('edit-name')
+            var inputLocation = document.getElementById('edit-location')
+            // console.log(temp);
+            inputName.value=temp[0].name
+            inputLocation.value=temp[0].location
+        }
+    </script>
+
+
+    
+</body>
+</html>
