@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "name": "Shona",
+      "location": "LA",
+      "id": 3
+    },
+    {
+      "name": "Duong1",
+      "location": "HCM",
+      "id": 4
+    },
+    {
+      "name": "Duong2",
+      "location": "HCM",
+      "id": 5
+    },
+    {
+      "name": "Duong3",
+      "location": "HCM",
+      "id": 6
+    },
+    {
+      "name": "Duong4",
+      "location": "HCM",
+      "id": 7
+    },
+    {
+      "name": "Duong5",
+      "location": "HCM",
+      "id": 8
+    },
+    {
+      "name": "Duong6",
+      "location": "HCM",
+      "id": 9
+    },
+    {
+      "name": "Mac",
+      "location": "Dool",
+      "id": 10
+    }
+  ]
+}
