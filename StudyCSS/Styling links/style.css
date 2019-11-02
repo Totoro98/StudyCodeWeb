@@ -1,0 +1,33 @@
+/* 
+States:
+    a:link
+    a:visited
+    a:hover
+    a:active
+ */
+ .link1{
+     font-size: 30px;
+     color: rgb(30, 3, 150);
+ }
+ .link1:link{
+    text-decoration: none;
+    font-family: sans-serif;
+ }
+
+ .link1:hover{
+    text-decoration: underline;
+ }
+ .link1:active{
+    color: red;
+ }
+ .btn-link2{
+    font-size: 30px;
+    text-decoration: none;
+    background-color: rgb(59, 59, 223);
+    color: #FFF;
+    padding: 5px 10px;
+    font-family: sans-serif;
+ }
+ .btn-link2:hover{
+     background-color: rgb(44, 9, 136);
+ }
