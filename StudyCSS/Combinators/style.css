@@ -1,0 +1,12 @@
+.item{
+    color: red;
+}
+/* .list-1 > .item{
+    border: 1px solid;
+} */
+.list-1 .item-1 + .item{
+    border: 1px solid;
+}
+.list-2 .item-1 ~ .item{
+    border: 1px solid;
+}
