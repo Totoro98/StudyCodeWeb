@@ -1,0 +1,40 @@
+
+/* border
+        Syntax
+            border-width: 1px;
+            border-style: solid* | dotted | dashed ...;
+            border-color: red;
+        Shorthand
+            border: 1px solid red;
+        Note
+            border-width: top right bottom left
+            border-width: top left-right bottom
+            border-width: top-bottom left-right
+            
+            border-top-width: 1px;
+            border-right-width: 1px;
+            ...
+ */
+/*  
+    Padding
+        padding-left: 20px;
+        padding-top: 100px;
+        padding-right: 10px;
+        padding-bottom: 15px;
+        padding: top right bottom left
+        padding: top left-right bottom
+        padding: top-bottom left-right 
+*/
+
+/* Margin tương tự Padding */
+
+.list-item{
+    font-size: 50px;
+    font: bold;
+    padding-left: 20px;
+    margin-left: 20px;
+    border-width: 2px;
+    border-color: red;
+    border-style: solid;
+    border-left-width: 15px;
+}
