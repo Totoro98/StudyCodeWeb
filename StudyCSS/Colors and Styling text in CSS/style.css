@@ -1,0 +1,28 @@
+.center{
+    text-align: center;
+    text-decoration: underline;
+    text-transform: uppercase;
+    text-shadow: 2px 2px rgba(200,150,200,0.2);
+    /* text-align: center*| left*| right*| justify
+    text-decoration: none*| underline*| overline| line-through
+    text-transform: uppercase*| lowercase| capitalize
+    text-indent: 10px ;
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    line-height: 1.2;
+    text-shadow: 2px 2px rgba(200,150,200,0.2) ;*/
+
+}
+h1{
+    font-family: sans-serif;
+    color: rgb(95, 11, 116);
+    /* color: rgb(255, 0, 0); Hệ màu Red Green Blue */
+    /* color: rgba(150, 200, 50, 0.7); Hệ màu Red-Green-Blue-Alpha(độ trong suốt 0 -> 1) */
+    
+}
+.text{
+    text-indent: 50px ;
+    /* letter-spacing: 5px; */
+    /* word-spacing: 10px; */
+    /* line-height: 1.2; */
+}
