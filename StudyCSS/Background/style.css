@@ -1,0 +1,51 @@
+/*  
+    background-color: color;
+    background-color: transparent;
+    background-color: gradient; 
+*/
+
+/* 
+    background-image: url(....)
+    background-repeat: repeat-x | reapeat-y | no-repeat | repeat* | ...
+    background-size: % | contain | cover | auto* |...
+    background-position: x y | center
+    background-attachment: scroll* | fixed 
+*/
+
+body{
+    background-color: rgb(114, 209, 233);
+}
+
+.list-item{
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+    margin-top: 10px;
+    padding: 10px 20px 10px;
+    border-radius: 10px;
+    background-color: rgb(107, 98, 240);
+}
+.list-item-bg-transparent{
+    background-color: transparent;
+}
+.list-item-gradient{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(22,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+.list-item-pattern{
+    background-image: url(pattern.jpg);
+    background-size: 10%;
+    height: 100px;
+    background-repeat: repeat-x;
+}
+.list-item-image{
+    background-image: url(bg.jpg);
+    height: 100px;
+    background-size: cover;
+    background-position: 0 -200;
+}
+.list-item-parallax{
+    background-image: url(bg.jpg);
+    height: 100px;
+    background-size: cover;
+    background-attachment: fixed;
+}
