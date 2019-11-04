@@ -1,0 +1,48 @@
+.wrap{
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 70% 30% */
+}
+.header,.footer{
+    grid-column: 1/3;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.song{
+    display: flex;
+    height: 100px;
+    width: 500px;
+    background-color: #FFF;
+    border-bottom: 1px solid #d4c4c8;
+}
+
+.number{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    width: 70px;
+}
+.songname {
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    flex-grow: 1;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.singer{
+    flex-grow: 1;
+    color: #bdc7c7;
+}
+.views {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
