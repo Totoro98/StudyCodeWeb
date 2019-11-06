@@ -17,7 +17,9 @@ module.exports.search =(req, res) =>{
     })
 }
 module.exports.create = (req, res)=>{
-    res.render('./users/createUser')
+    res.render('./users/createUser',{
+        error : 0
+    })
 }
 module.exports.id = (req, res)=>{
     var id = req.params.id
@@ -29,7 +31,25 @@ module.exports.id = (req, res)=>{
     })
 }
 module.exports.postCreate = (req, res)=>{
+    if(!req.body.name){
+        var error =1
+        res.render('./users/createUser',{
+            error : error
+        })
+        return;
+    }
     req.body.id = shortid.generate()
     db.get('listUser').push(req.body).write()
     res.redirect('/users')
+}
+module.exports.deleteUser = (req, res) =>{
+    var id = req.params.id
+    for(user of db.get('listUser').value()){
+        if(user.id == id){
+            db.get('listUser').remove({id: id}).write()
+        }
+    }
+    res.render('./users/index',{
+        arrUser :db.get('listUser').value()
+    })
 }

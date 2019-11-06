@@ -9,5 +9,6 @@ router.get('/search', controller.search)
 router.get('/create',controller.create)
 router.get('/:id',controller.id)
 router.post('/create',controller.postCreate)
+router.get('/delete/:id',controller.deleteUser)
 
 module.exports = router

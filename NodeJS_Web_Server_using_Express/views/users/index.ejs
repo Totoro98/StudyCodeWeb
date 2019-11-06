@@ -28,7 +28,7 @@
 
         <ul class="list-group">
             <% arrUser.forEach(function(user){ %>
-              <li class="list-group-item"><%= user.name %><a href="/users/<%=user.id %>" class="badge badge-info">Info</a></li>
+              <li class="list-group-item"><%= user.name %><a href="/users/<%=user.id %>" class="btn btn-info m-3">Info</a><a href="/users/delete/<%=user.id %>" class="btn btn-danger ml-5">Delete</a></li>
             <% }); %>
         </ul>
         <% include ../layouts/footer.ejs %>
