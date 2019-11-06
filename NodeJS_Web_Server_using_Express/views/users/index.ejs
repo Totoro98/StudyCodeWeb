@@ -27,7 +27,7 @@
 
         <ul class="list-group">
             <% arrUser.forEach(function(user){ %>
-              <li class="list-group-item"><%= user.name %></li>
+              <li class="list-group-item"><%= user.name %><a href="/users/<%=user.id %>" class="badge badge-info">Info</a></li>
             <% }); %>
         </ul>
     </div>

@@ -1,22 +1,12 @@
 {
   "listUser": [
     {
-      "name": "Tom"
+      "name": "Tom",
+      "id": "MJx7sYfs"
     },
     {
-      "name": "Jerry"
-    },
-    {
-      "name": "Tiger"
-    },
-    {
-      "name": "Mickey"
-    },
-    {
-      "name": "Thomas"
-    },
-    {
-      "name": "Json"
+      "name": "Jerry",
+      "id": "ww7LTG35"
     }
   ]
 }
