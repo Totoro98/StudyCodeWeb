@@ -1,6 +1,12 @@
 const Express = require('express')
+const bodyParser = require('body-parser')
+
 const app = Express()
 const port = 3000
+
+app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
@@ -28,5 +34,11 @@ app.get('/users/search', (req, res) =>{
         arrUser: result
     })
 })
-
+app.get('/users/create',(req, res)=>{
+    res.render('./users/createUser')
+})
+app.post('/users/create',(req, res)=>{
+    listUser.push(req.body)
+    res.redirect('/users')
+})
 app.listen(port, () => console.log(`Server listening on port ${port}`))
