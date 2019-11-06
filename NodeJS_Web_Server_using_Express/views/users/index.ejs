@@ -12,6 +12,17 @@
         <div class="alert alert-primary" role="alert">
             List users a here!
         </div>
+        <form action="/users/search" method="GET">
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <label class="sr-only" for="inlineFormInput">Name</label>
+              <input type="text" name="q" class="form-control mb-2" id="inlineFormInput" placeholder="Name">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </div>
+          </div>
+        </form>
         <ul class="list-group">
             <% arrUser.forEach(function(user){ %>
               <li class="list-group-item"><%= user.name %></li>
