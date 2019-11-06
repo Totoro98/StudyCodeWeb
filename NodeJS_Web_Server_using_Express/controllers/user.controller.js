@@ -31,13 +31,7 @@ module.exports.id = (req, res)=>{
     })
 }
 module.exports.postCreate = (req, res)=>{
-    if(!req.body.name){
-        var error =1
-        res.render('./users/createUser',{
-            error : error
-        })
-        return;
-    }
+    
     req.body.id = shortid.generate()
     db.get('listUser').push(req.body).write()
     res.redirect('/users')
