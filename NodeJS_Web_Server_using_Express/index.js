@@ -1,8 +1,15 @@
 const Express = require('express')
 const bodyParser = require('body-parser')
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+
+const adapter = new FileSync('db.json')
+const db = low(adapter)
 
 const app = Express()
 const port = 3000
+
+
 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -10,8 +17,10 @@ app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
+// Set some defaults (required if your JSON file is empty)
+db.defaults({ listUser: []})
+  .write()
 
-listUser =[{id: 1,name:"Tom"},{id:2,name:"Jerry"}]
 
 
 app.get('/',(req, res) => {
@@ -21,13 +30,13 @@ app.get('/',(req, res) => {
 })
 app.get('/users',(req, res) =>{
     res.render('./users/index',{
-        arrUser :listUser
+        arrUser :db.get('listUser').value()
     })
 })
 
 app.get('/users/search', (req, res) =>{
     var q = req.query.q
-    var result = listUser.filter((user) =>{
+    var result = db.get('listUser').value().filter((user) =>{
         return user.name.toLowerCase().indexOf(q.toLowerCase()) !==-1
     })
     res.render('./users/index',{
@@ -38,7 +47,7 @@ app.get('/users/create',(req, res)=>{
     res.render('./users/createUser')
 })
 app.post('/users/create',(req, res)=>{
-    listUser.push(req.body)
+    db.get('listUser').push(req.body).write()
     res.redirect('/users')
 })
 app.listen(port, () => console.log(`Server listening on port ${port}`))
