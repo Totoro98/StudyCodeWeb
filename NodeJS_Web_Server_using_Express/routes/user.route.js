@@ -4,7 +4,10 @@ const controller = require('../controllers/user.controller')
 const router = express.Router()
 
 router.get('/',controller.index)
-
+router.get('/cookie',(req,res,next)=>{
+    console.log(req.cookies);
+    res.end()
+})
 router.get('/search', controller.search)
 router.get('/create',controller.create)
 router.get('/:id',controller.id)
