@@ -1,7 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const routerUser = require('./routes/user.route')
+const routerAuth = require('./routes/auth.route')
 const cookieParser = require('cookie-parser')
+const middleware =require('./middleware/auth.middleware')
 
 const app = express()
 const port = 3000
@@ -21,5 +23,6 @@ app.get('/',(req, res) => {
         name : "Hello Word"
     })
 })
-app.use('/users', routerUser)
+app.use('/auth', routerAuth)
+app.use('/users',middleware.requireAuth, routerUser)
 app.listen(port, () => console.log(`Server listening on port ${port}`))

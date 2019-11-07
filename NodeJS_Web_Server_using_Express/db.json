@@ -2,7 +2,9 @@
   "listUser": [
     {
       "name": "Jerry",
-      "id": "ww7LTG35"
+      "id": "ww7LTG35",
+      "email": "Jerry@gmail.com",
+      "password": "123456"
     },
     {
       "name": "Thomas",
