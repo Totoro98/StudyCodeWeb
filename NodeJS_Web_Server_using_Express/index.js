@@ -1,3 +1,5 @@
+require('dotenv').config()
+console.log('SESSION_SECRET : ', process.env.SESSION_SECRET);
 const express = require('express')
 const bodyParser = require('body-parser')
 const routerUser = require('./routes/user.route')
@@ -12,7 +14,7 @@ const port = 3000
 app.use(express.static('public'))
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-app.use(cookieParser('3e48f1ce9f015cc59bd7bf0605681f28'))
+app.use(cookieParser(process.env.SESSION_SECRET))
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
