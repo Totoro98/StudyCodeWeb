@@ -1,4 +1,4 @@
-Using EJS template engines with Express
+Using Signed Cookie 
 
 References: 
-            + https://www.npmjs.com/package/ejs
+            + https://expressjs.com/en/4x/api.html#res.cookie

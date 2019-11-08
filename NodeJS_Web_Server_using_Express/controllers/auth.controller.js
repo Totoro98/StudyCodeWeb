@@ -1,10 +1,10 @@
 const db = require('../db')
 const md5 = require('md5');
-
+const cookieParser = require('cookie-parser')
 
 module.exports.login = (req, res)=>{
     res.render('auth/login',{
-        errors : []
+        errors : [], user : undefined
     })
 }
 module.exports.postLogin = (req, res)=>{
@@ -27,6 +27,6 @@ module.exports.postLogin = (req, res)=>{
         })
         res.end()
     }
-    res.cookie('pass',user.password)
+    res.cookie('userId',user.id,{signed: true})
     res.redirect('/users')
 }
