@@ -1,11 +1,11 @@
 const db = require('../db')
 
 module.exports.requireAuth = (req, res, next) =>{
-    if(!req.cookies.userId){
+    if(!req.cookies.pass){
         res.redirect('/auth/login')
         return;
     }
-    var user =  db.get('listUser').find({id : req.cookies.userId}).value()
+    var user =  db.get('listUser').find({password : req.cookies.pass}).value()
     if(!user){
         res.redirect('/auth/login')
         return;
