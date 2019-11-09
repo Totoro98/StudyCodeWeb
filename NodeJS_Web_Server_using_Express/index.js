@@ -4,6 +4,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const routerUser = require('./routes/user.route')
 const routerAuth = require('./routes/auth.route')
+const routerProduct = require('./routes/product.route')
 const cookieParser = require('cookie-parser')
 const middleware =require('./middleware/auth.middleware')
 
@@ -22,9 +23,10 @@ app.set('view engine', 'ejs')
 
 app.get('/',(req, res) => {
     res.render('index',{
-        name : "Hello Word"
+        name : "Hello Word", user : undefined
     })
 })
 app.use('/auth', routerAuth)
 app.use('/users',middleware.requireAuth, routerUser)
+app.use('/products', routerProduct)
 app.listen(port, () => console.log(`Server listening on port ${port}`))
