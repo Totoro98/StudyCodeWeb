@@ -1,0 +1,7 @@
++ Tìm hiểu babel , công cụ chuyển đổi JSX sang component cảu React
+
+
+References: 
+            + https://youtu.be/fx-_n26guiU
+            + https://babeljs.io/setup#installation
+            
