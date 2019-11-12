@@ -5,7 +5,6 @@ class TodoItem extends Component {
         return (
             <div className="TodoItem">
                 <p>{this.props.title}</p>
-                <p>{this.props.object.data}</p>
             </div>
         );
     }
